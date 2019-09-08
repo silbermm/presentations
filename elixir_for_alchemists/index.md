@@ -10,7 +10,7 @@ class: center, middle, inverse
 # Elixir for Alchemists
 
 ---
-class: left
+class: black, list
 
 
 ### A (brief) history of Elixir
