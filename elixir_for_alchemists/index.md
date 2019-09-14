@@ -10,7 +10,7 @@ class: center, middle, inverse
 # Elixir for Alchemists
 
 ---
-class: black, list
+class: left
 
 
 ### A (brief) history of Elixir
@@ -37,7 +37,6 @@ class: left
 ???
 
 * José was a Ruby user and contributer.
-
 
 ---
 class: left
