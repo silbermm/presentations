@@ -13,9 +13,9 @@ class: center, middle, inverse
 class: left
 
 
-### A (brief) history of Elixir
+## A (brief) history of Elixir
 
-#### Erlang
+### Erlang
 * Created by Joe Armstrong, Robert Virding, and Mike Williams in 1986 for Ericcson.
 * Built to run telcom swiches, so needed to be extremely fault tolerant, distributed, highly available (non stop), hot swappable code.
 * Cisco currently uses Erlang and ships about 2M devices a year containing Erlang
@@ -25,15 +25,19 @@ class: left
 ---
 class: left
 
-### A (brief) history of Elixir (cont)
-
-#### Elixir
+## A (brief) history of Elixir (cont)
+.left-column-big[
+### Elixir
 * Created by José Valim as an R&D project for his company Plataformatec in 2012
-    * 1.0 was release in 2014 and new minor version is released every 6 months or so
+    * 1.0 was released in 2014 and new minor version is released every 6 months or so
 * Built to run on the Erlang Virtual Machine, which provides the scalable and fault-tolerant foundation
 * Why not just use Erlang?
   * José wanted to bring the developer experience of Ruby to the Erlang world, hence Elixir
+]
 
+.right-column-small[
+  ![Elixir Logo](assets/elixir.png)
+]
 ???
 
 * José was a Ruby user and contributer.
@@ -41,7 +45,7 @@ class: left
 ---
 class: left
 
-### A (non-exhasitve) list of companies using Elixir
+## A (non-exhasitve) list of companies using Elixir
 
 * Adobe
 * Amazon (SimpleDB)
@@ -59,7 +63,7 @@ A list of established companies to indicate that Elixir is not a fringe language
 ---
 class: left
 
-### Elixir paradigm
+## Elixir paradigm
 
 Elixir is a Dynamic Functional Languge.
 
@@ -81,7 +85,7 @@ Expression - combination of variables, functions, operators that produce a value
 ---
 class: left
 
-### Elixir Building Blocks
+## Elixir Building Blocks
 
 ```elixir
 # chars, strings, integers, floats and booleans
@@ -116,7 +120,7 @@ end
 ---
 class: left
 
-### Composability (and the Pipe operator)
+## Composability (and the Pipe operator)
 
 Because Elixir's focus is on transforming data, composability is intuitive and the pipe operator makes it very elegant
 
@@ -148,7 +152,7 @@ odd? = &(rem(&1, 2) != 0) end
 ---
 class: left
 
-### Pattern Matching
+## Pattern Matching
 
 case expressions
 ```elixir
@@ -179,7 +183,7 @@ end
 ---
 class: left
 
-### Built in documentation with testing
+## Built in documentation with testing
 
 ```elixir
 defmodule Numbers do
@@ -207,19 +211,19 @@ end
 ---
 class: left
 
-### The REPL
+## The REPL
 
 * can be used in context of an application
 * can be used for debugging purposes and tracing.
 * can recompile modules on the fly
 * includes documentation and help
 
-#####Example
+###Example
 
 ---
 class: left
 
-### Elixir Concurrency
+## Elixir Concurrency
 
 Uses the 'Actor' model.
 
@@ -230,7 +234,7 @@ Processes are very lightweight and it's not uncommon for Elixir programs to run 
 ---
 class: left
 
-### Distrubuted Elixir
+## Distrubuted Elixir
 
 Building upon the isolated process (Actor) model, the BEAM (Erlang Virtual Machine) can run easliy processes on seperate machines and the message passing happens similar to rabbit etc.
 
@@ -238,9 +242,9 @@ Building upon the isolated process (Actor) model, the BEAM (Erlang Virtual Machi
 class: left
 
 
-### What I don't like about Elixir
+## What I don't like about Elixir
 
-#### Not strongly typed
+### Not strongly typed
 
 ```elixir
 def product_of_numbers(list_of_numbers) do
