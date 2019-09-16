@@ -15,12 +15,18 @@ class: left
 
 ## A (brief) history of Elixir
 
+.left-column-big[
 ### Erlang
 * Created by Joe Armstrong, Robert Virding, and Mike Williams in 1986 for Ericcson.
 * Built to run telcom swiches, so needed to be extremely fault tolerant, distributed, highly available (non stop), hot swappable code.
 * Cisco currently uses Erlang and ships about 2M devices a year containing Erlang
 * Top 8 ISP's use Erlang based systems to control their networks
 * Estimated 90% of all internet traffic passes through Erlang controlled nodes
+]
+
+.right-column-small[
+  ![Erlang Logo](assets/erlang.png)
+]
 
 ---
 class: left
@@ -65,20 +71,37 @@ class: left
 
 ## Elixir paradigm
 
-Elixir is a Dynamic Functional Languge.
-
-
-* variables are immutable (but are rebindable) (example)
+.left-column-half[
+#### Elixir is a Dynamic Functional Languge.
+* variables are immutable
 * supports higher-order functions
 * everything is an expression
 * type checks are done at runtime
+]
+
+.right-column-half[
+```elixir
+# Immutability
+e = [1,2,3]
+e ++ [4]
+# e still equals [1,2,3]
+
+# Higher Order Functions
+Enum.Map([1,2,3], fn x -> x*2 end)
+# [2,4,6]
+
+# Expressions
+result = if (true) do :ok else :error end
+# if returns a value, result = :ok
+```
+]
 
 ???
 
 Immutable - data referenced by variable doesn't change, but the varaible can reference different data
 Immutable example 
  - elixir `e = [1,2,3]` `e ++ [4]` e still equals `[1,2,3]`
- - node `let e = [1,2,3]` `e.push(4)` e now equals `[1,2,3,4]`
+ - node `const e = [1,2,3]` `e.push(4)` e now equals `[1,2,3,4]`
 Higher-Order Function - function that takes another function as an argument or returns a function
 Expression - combination of variables, functions, operators that produce a value.
 
@@ -124,7 +147,26 @@ class: left
 
 Because Elixir's focus is on transforming data, composability is intuitive and the pipe operator makes it very elegant
 
-Instead of:
+Instead of writing like this...
+
+```elixir
+odd? = &(rem(&1, 2) != 0) end
+
+Enum.sum(
+  Enum.filter(
+    Enum.map(1..100_000, &(&1 * 3)),
+    odd?
+  )
+)
+```
+---
+class: left
+
+## Composability (and the Pipe operator)
+
+Because Elixir's focus is on transforming data, composability is intuitive and the pipe operator makes it very elegant
+
+Instead of writing like this...
 
 ```elixir
 odd? = &(rem(&1, 2) != 0) end
@@ -148,6 +190,7 @@ odd? = &(rem(&1, 2) != 0) end
 |> Enum.sum
 
 ```
+
 
 ---
 class: left
@@ -205,7 +248,7 @@ defmodule Numbers do
 end
 ```
 
-[Phoenix Documentation](https://hexdocs.pm/phoenix/Phoenix.html)
+[Documentation Example](https://hexdocs.pm/elixir/Enum.html)
 
 
 ---
@@ -220,9 +263,13 @@ class: left
 
 ###Example
 
+???
+`break! ElixirForAlchemists.product_of_numbers/1`
+`continue`
 ---
 class: left
 
+.left-column-big[
 ## Elixir Concurrency
 
 Uses the 'Actor' model.
@@ -230,6 +277,18 @@ Uses the 'Actor' model.
 Processes are isolated from each other, run concurrent to one another and communicate via message passing.
 
 Processes are very lightweight and it's not uncommon for Elixir programs to run tens or hundreds of thousands of processes at any given time.
+
+The BEAM manages scheduling of all these process among all available CPU's
+]
+
+.right-column-small[
+```elixir
+pid = spawn(Processes, :listen, [])
+```
+]
+???
+`pid = spawn(Processes, :listen, [])`
+
 
 ---
 class: left
