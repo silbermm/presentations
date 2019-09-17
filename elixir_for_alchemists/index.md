@@ -269,7 +269,6 @@ class: left
 ---
 class: left
 
-.left-column-big[
 ## Elixir Concurrency
 
 Uses the 'Actor' model.
@@ -279,15 +278,11 @@ Processes are isolated from each other, run concurrent to one another and commun
 Processes are very lightweight and it's not uncommon for Elixir programs to run tens or hundreds of thousands of processes at any given time.
 
 The BEAM manages scheduling of all these process among all available CPU's
-]
 
-.right-column-small[
-```elixir
-pid = spawn(Processes, :listen, [])
-```
-]
 ???
+
 `pid = spawn(Processes, :listen, [])`
+`send(pid, {:ok, "hello", self})`
 
 
 ---
@@ -295,7 +290,7 @@ class: left
 
 ## Distrubuted Elixir
 
-Building upon the isolated process (Actor) model, the BEAM (Erlang Virtual Machine) can run easliy processes on seperate machines and the message passing happens similar to rabbit etc.
+Building upon the isolated process (Actor) model, the BEAM (Erlang Virtual Machine) can run easliy processes on seperate machines passing messages around as if they are on the same machine.
 
 ---
 class: left
