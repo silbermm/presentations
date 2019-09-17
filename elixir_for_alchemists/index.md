@@ -3,7 +3,7 @@ title: 'Elixir for Alchemists'
 date: "2019-09-01"
 url: "presentations/elixir-for-alchemists"
 ratio: "16:9"
-description: "Elixir for alchemists"
+description: "An introduction to Elixir for the engineers at my company - Alchemy"
 ---
 class: center, middle, inverse
 
@@ -140,6 +140,51 @@ defmodule Numbers do
   end
 end
 ```
+---
+class: left
+## Where are the type parameters?!
+
+Typical Elixir Function
+
+```elixir
+def product_of_numbers(list_of_numbers) do
+  Enum.reduce(list_of_numbers, fn x, acc -> 
+    acc * x
+  end)
+end
+```
+
+---
+class: left
+## Where are the type parameters?!
+
+Typical Elixir Function
+
+```elixir
+def product_of_numbers(list_of_numbers) do
+  Enum.reduce(list_of_numbers, fn x, acc -> 
+    acc * x
+  end)
+end
+```
+I can provide specifications to give Elixir hints as to what it should expect
+
+```elixir
+@spec product_of_numbers(list(number())) :: number()
+def product_of_numbers(list_of_numbers) do
+  Enum.reduce(list_of_numbers, fn x, acc -> 
+    acc * x
+  end)
+end
+```
+
+And then run the static analysis tool to find most issues.
+
+???
+
+* Change a parameter in the list of use_fn function to a string and run show that it compiles fine, but throws an error when called.
+* Run Dialyzer to show the error
+
 ---
 class: left
 
@@ -288,49 +333,8 @@ The BEAM manages scheduling of all these process among all available CPU's
 ---
 class: left
 
-## Distrubuted Elixir
+## Distributed Elixir
 
-Building upon the isolated process (Actor) model, the BEAM (Erlang Virtual Machine) can run easliy processes on seperate machines passing messages around as if they are on the same machine.
+Building upon the isolated process (Actor) model, the BEAM (Erlang Virtual Machine) can easily run processes on seperate machines passing messages around as if they are on the same machine.
 
----
-class: left
-
-
-## What I don't like about Elixir
-
-### Not strongly typed
-
-```elixir
-def product_of_numbers(list_of_numbers) do
-  Enum.reduce(list_of_numbers, &Kernel.*/2)
-end
-```
-
-But I can provide specifications to give Elixir hints as to what it should expect
-
-```elixir
-@spec product_of_numbers(list(number())) :: number()
-def product_of_numbers(list_of_numbers) do
-  Enum.reduce(list_of_numbers, &Kernel.*/2)
-end
-```
-
-and then use the static analysis tool Dialyzer to find issues, but this does not take the place of a strongly typed language
-
----
-class: left
-
-### What I don't like about Elixir (cont)
-
-#### The anonymous function syntax
-
-```elixir
-anon = fn (arg) -> 1 + arg end)
-anon.(2)
-```
-
-#### Alternatively
-
-```elixir
-apply(anon, [2])
-```
+#### Example
