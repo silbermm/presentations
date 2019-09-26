@@ -61,6 +61,7 @@ class: left
 * Pinterest
 * Slack
 * Toyota Connected
+* Pepsi
 
 ???
 
@@ -142,7 +143,7 @@ end
 ```
 ---
 class: left
-## Where are the type parameters?!
+## How do you know the type of the parameters?
 
 Typical Elixir Function
 
@@ -156,7 +157,7 @@ end
 
 ---
 class: left
-## Where are the type parameters?!
+## How do you know the type of the parameters?
 
 Typical Elixir Function
 
@@ -338,3 +339,27 @@ class: left
 Building upon the isolated process (Actor) model, the BEAM (Erlang Virtual Machine) can easily run processes on seperate machines passing messages around as if they are on the same machine.
 
 #### Example
+
+???
+
+iex --sname one@localhost -S mix
+
+iex --sname two@localhost -S mix
+
+pid = Node.spawn(:one@localhost, Processes, :hello, [])
+
+message_pid = Node.spawn(:two@localhost, Processes, :message, [])
+
+send(pid, {:ok, "hello", message_pid})
+
+---
+class: left
+
+## Thanks
+
+#### Resources for learning Elixir
+* [Elixir Lang Website Guide](https://elixir-lang.org/getting-started/introduction.html)
+* [Elixir School](https://elixirschool.com/en/)
+* [Elixir Casts](https://elixircasts.io/)
+* [Exercism](https://exercism.io/tracks/elixir)
+* Come talk to me!
