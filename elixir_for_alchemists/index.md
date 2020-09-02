@@ -3,6 +3,10 @@ title: 'Elixir for Alchemists'
 date: "2019-09-01"
 url: "presentations/elixir-for-alchemists"
 ratio: "16:9"
+categories:
+- Elixir
+tags:
+- Elixir
 description: "An introduction to Elixir for the engineers at my company - Alchemy"
 ---
 class: center, middle, inverse
