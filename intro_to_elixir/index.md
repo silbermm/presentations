@@ -1,17 +1,17 @@
 ---
-title: 'Elixir for Alchemists'
+title: 'Intro to Elixir'
 date: "2019-09-01"
-url: "presentations/elixir-for-alchemists"
+url: "presentations/intro-to-elixir"
 ratio: "16:9"
 categories:
 - Elixir
 tags:
 - Elixir
-description: "An introduction to Elixir for the engineers at my company - Alchemy"
+description: "An introduction to Elixir"
 ---
 class: center, middle, inverse
 
-# Elixir for Alchemists
+# Introduction to Elixir
 
 ---
 class: left
@@ -60,8 +60,10 @@ class: left
 * Adobe
 * Amazon (SimpleDB)
 * Bleacher Report
+* Change.org
 * Discord [How Discord Scaled Elixir to 5,000,000 Concurrent Users](https://blog.discordapp.com/scaling-elixir-f9b8e1e7c29b)
 * Facebook
+* Heroku
 * Pinterest
 * Slack
 * Toyota Connected
@@ -104,7 +106,7 @@ result = if (true) do :ok else :error end
 ???
 
 Immutable - data referenced by variable doesn't change, but the varaible can reference different data
-Immutable example 
+Immutable example
  - elixir `e = [1,2,3]` `e ++ [4]` e still equals `[1,2,3]`
  - node `const e = [1,2,3]` `e.push(4)` e now equals `[1,2,3,4]`
 Higher-Order Function - function that takes another function as an argument or returns a function
@@ -139,7 +141,7 @@ fn (a, b) -> a + b end
 # Modules and Functions
 defmodule Numbers do
   def product_of_numbers(list_of_numbers) do
-    Enum.reduce(list_of_numbers, fn x, acc -> 
+    Enum.reduce(list_of_numbers, fn x, acc ->
       acc * x
     end)
   end
@@ -153,7 +155,7 @@ Typical Elixir Function
 
 ```elixir
 def product_of_numbers(list_of_numbers) do
-  Enum.reduce(list_of_numbers, fn x, acc -> 
+  Enum.reduce(list_of_numbers, fn x, acc ->
     acc * x
   end)
 end
@@ -167,7 +169,7 @@ Typical Elixir Function
 
 ```elixir
 def product_of_numbers(list_of_numbers) do
-  Enum.reduce(list_of_numbers, fn x, acc -> 
+  Enum.reduce(list_of_numbers, fn x, acc ->
     acc * x
   end)
 end
@@ -177,7 +179,7 @@ I can provide specifications to give Elixir hints as to what it should expect
 ```elixir
 @spec product_of_numbers(list(number())) :: number()
 def product_of_numbers(list_of_numbers) do
-  Enum.reduce(list_of_numbers, fn x, acc -> 
+  Enum.reduce(list_of_numbers, fn x, acc ->
     acc * x
   end)
 end
