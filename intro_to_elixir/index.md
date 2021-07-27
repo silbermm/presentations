@@ -376,4 +376,5 @@ class: left
 * [Elixir School](https://elixirschool.com/en/)
 * [Elixir Casts](https://elixircasts.io/)
 * [Exercism](https://exercism.io/tracks/elixir)
+* [Functional vs OO](https://chelseatroy.com/2021/02/22/functional-vs-oo-the-debate-that-imprecise-language-destroyed/)
 * Come talk to me!
