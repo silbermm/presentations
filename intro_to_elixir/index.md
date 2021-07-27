@@ -94,7 +94,9 @@ e ++ [4]
 # e still equals [1,2,3]
 
 # Higher Order Functions
-Enum.Map([1,2,3], fn x -> x*2 end)
+def times_two(x), do: x * 2
+
+Enum.map([1,2,3], &times_two/1)
 # [2,4,6]
 
 # Expressions
@@ -323,6 +325,7 @@ class: left
 
 ## Elixir Concurrency
 
+.left-column-half[
 Uses the 'Actor' model.
 
 Processes are isolated from each other, run concurrent to one another and communicate via message passing.
@@ -330,6 +333,11 @@ Processes are isolated from each other, run concurrent to one another and commun
 Processes are very lightweight and it's not uncommon for Elixir programs to run tens or hundreds of thousands of processes at any given time.
 
 The BEAM manages scheduling of all these process among all available CPU's
+]
+
+.right-column-half[
+  ![Actor_Model](assets/actors.png)
+]
 
 ???
 
